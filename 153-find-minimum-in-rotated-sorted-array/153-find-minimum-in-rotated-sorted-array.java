@@ -6,7 +6,7 @@ class Solution {
             int mid = (l+h)/2;
             if (nums[mid]>=nums[l]){ min = Math.min(min,nums[l]);
                                  l=mid+1;}
-            else  if (nums[mid]>=nums[h]) { min = Math.min(min,nums[h]);
+            else  if (nums[mid]<=nums[h]) { min = Math.min(min,nums[mid]);
                                  h=mid-1;}
             else {min = Math.min(min,nums[mid]); l++;h--;}
             
