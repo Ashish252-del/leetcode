@@ -8,7 +8,7 @@ class Solution {
                                  l=mid+1;}
             else  if (nums[mid]<=nums[h]) { min = Math.min(min,nums[mid]);
                                  h=mid-1;}
-            else {min = Math.min(min,nums[mid]); l++;h--;}
+          //  else {min = Math.min(min,nums[mid]); l++;h--;}
             
         }
         return min;
