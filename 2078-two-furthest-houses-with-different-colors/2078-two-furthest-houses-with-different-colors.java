@@ -10,6 +10,7 @@ class Solution {
                 }
                 ans = Math.max(ans,curr);
             }
+            s.add(colors[i]);
         }
         return ans;
     }
