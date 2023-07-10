@@ -7,7 +7,7 @@ class Solution {
     }
   public int lsc (String a, String b, int m, int n, int memo [][]) {
       if(memo[m][n]!=-1) return memo[m][n];
-        if(n==0 || m==0) {memo[m][n] = 0;}
+        if(n==0 || m==0) {memo[m][n] = 0; return 0;}
        else if(a.charAt(m-1) == b.charAt(n-1)) memo[m][n] = 1 + lsc(a,b,m-1,n-1, memo);
        else memo[m][n] = Math.max(lsc(a,b,m,n-1, memo), lsc(a,b,m-1,n, memo));
       return memo[m][n];
