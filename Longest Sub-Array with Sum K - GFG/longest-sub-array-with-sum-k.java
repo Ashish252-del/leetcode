@@ -63,16 +63,15 @@ class Solution{
        for(int i =0; i<N; i++) {
            if(h.containsKey(pref[i]-K)) {
                int temp = h.get(pref[i]-K);
-               if(pref[i]-K == 0  ) res = Math.max(res, i +1);
+              // if(pref[i]-K == 0) res = Math.max(res, i +1);
                res = Math.max(res, i -h.get(pref[i]-K));
            }
-        else if (pref[i] == K) res = Math.max(res, i+1);
+         if (pref[i] == K) res = Math.max(res, i+1);
           if(!h.containsKey(pref[i])) h.put(pref[i], i);
        }
        return res ;
     }
-    
-    
+  
 }
 
 
