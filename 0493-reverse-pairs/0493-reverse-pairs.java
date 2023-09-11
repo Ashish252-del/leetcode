@@ -21,40 +21,21 @@ class Solution {
             cnt+=(h-(mid+1));
         }
     }
-    public void merge (int arr [] , int low, int mid , int high) {
-       ArrayList<Integer> temp = new ArrayList<>(); // temporary array
-        int left = low;      // starting index of left half of arr
-        int right = mid + 1;   // starting index of right half of arr
-
-        //storing elements in the temporary array in a sorted manner//
-
-        while (left <= mid && right <= high) {
-            if (arr[left] <= arr[right]) {
-                temp.add(arr[left]);
-                left++;
-            } else {
-                temp.add(arr[right]);
-                right++;
+    public void merge (int nums [] , int l, int mid , int r) {
+        int left [] = new int [(mid-l)+1]; int right[] = new int [r-mid];
+        for(int i =0; i<left.length; i++) left[i] = nums[l+i];
+           for(int i =0; i<right.length; i++) right[i] = nums[mid+(i+1)];
+        int i =0 , j=0, k =l;
+        while(i<left.length && j<right.length) {
+            if(left[i] <= right[j]) {
+                nums[k] = left[i]; i++; k++;
             }
+        else {
+             nums[k] = right[j]; j++; k++; 
         }
-
-        // if elements on the left half are still left //
-
-        while (left <= mid) {
-            temp.add(arr[left]);
-            left++;
         }
-
-        //  if elements on the right half are still left //
-        while (right <= high) {
-            temp.add(arr[right]);
-            right++;
-        }
-
-        // transfering all elements from temporary to arr //
-        for (int i = low; i <= high; i++) {
-            arr[i] = temp.get(i - low);
-        }
+        while(i<left.length) {nums[k] = left[i]; i++; k++;}
+         while(j<right.length) {nums[k] = right[j]; j++; k++;}
         
     }
 }
