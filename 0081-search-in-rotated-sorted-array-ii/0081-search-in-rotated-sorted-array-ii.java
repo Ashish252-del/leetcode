@@ -5,7 +5,7 @@ class Solution {
             int m = (l+r)/2;
             if(nums[m] == target) return true;
             while(nums[m] == nums[l] && (l!=m)) l++;
-          while(nums[m] == nums[r] && (r!=m)) r--;
+     //     while(nums[m] == nums[r] && (r!=m)) r--;
 
             if(nums[m]>=nums[l] ) {
                if ( target>=nums[l] && nums[m]>target)
