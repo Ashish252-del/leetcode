@@ -8,17 +8,17 @@ class Solution {
         
     }
     void solve ( List<Integer> arr,List<List<Integer>> ans,int [] c , int n , int t) {
-        if( n ==0) {
+        if( t ==0) {
             //Collections.sort(arr);
-            if(t==0)
+           // if(t==0)
             ans.add(new ArrayList<>(arr));
           //    arr.remove(arr.size()-1);
             return ;
         }
-        // if( t<0 || n<=0) {
-        //  //if(arr.size()>0)arr.remove(arr.size()-1);
-        //     return ;
-        // }
+        if( t<0 || n<=0) {
+         //if(arr.size()>0)arr.remove(arr.size()-1);
+            return ;
+        }
         
        if(t>=c[n-1]) { 
            arr.add(c[n-1]);
