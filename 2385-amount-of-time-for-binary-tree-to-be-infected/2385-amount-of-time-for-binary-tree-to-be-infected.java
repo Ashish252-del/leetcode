@@ -51,8 +51,9 @@ class Solution {
            if(p!=null && !h.contains(p)) {h.add(p); q.add(p); isBurn = true;}
 
             }
-          if(isBurn)  ans++;
+          //if(isBurn) 
+              ans++;
         }
-        return ans ;
+        return ans-1;
     }
 }
