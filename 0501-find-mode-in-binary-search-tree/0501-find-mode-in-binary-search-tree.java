@@ -14,40 +14,14 @@
  * }
  */
 class Solution {
-    int maxcount=1;
-    public int[] findMode(TreeNode root) {
-        HashMap<Integer , Integer> map=new HashMap<>();
-        FindMode(root , map);
-        ArrayList<Integer> list=new ArrayList<>();
-        
-        
-        
-        for(Integer key : map.keySet()){
-            if(map.get(key)==maxcount){
-                list.add(key);
-            }
-        }
-        
-        int ans[]=new int[list.size()];
-        for (int j = 0; j < list.size(); j++) {
-            ans[j] = list.get(j);
-        }
-        return ans;
-        
-
+    public boolean isValidBST(TreeNode root) {
+      //  if(root.left==null&&root.right==null) return true;
+     long a = Long.MAX_VALUE;
+        long b = Long.MIN_VALUE;
+        return check(root,a,b);
     }
-    public void FindMode(TreeNode root , HashMap<Integer , Integer>map){
-        if(root==null){
-            return;
-        }else if(map.containsKey(root.val)){
-            int count=map.get(root.val)+1;
-            map.put(root.val , count);
-            maxcount=Math.max(count , maxcount);
-
-        }else{
-            map.put(root.val ,1);
-        }
-        FindMode(root.left , map);
-        FindMode(root.right , map);
+    boolean check(TreeNode root, long a, long b){
+      if(root==null) return true;
+        return(root.val<a&&root.val>b&&check(root.left,root.val,b)&&check(root.right,a,root.val));
     }
 }
