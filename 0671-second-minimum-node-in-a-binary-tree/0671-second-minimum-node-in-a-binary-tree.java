@@ -17,7 +17,7 @@ class Solution {
     public int findSecondMinimumValue(TreeNode root) {
         if(root == null ) return -1;
         long ans = getMin(root,Long.MAX_VALUE,Long.MAX_VALUE);
-        if(ans == Long.MAX_VALUE+1) return -1;
+        if(ans == Long.MAX_VALUE) return -1;
         return (int)ans ;
         
     }
